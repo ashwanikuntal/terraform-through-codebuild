@@ -6,13 +6,11 @@ phases:
       python: 3.7
     commands:
       - echo Installing necessary dependencies..
-      - wget https://releases.hashicorp.com/terraform/0.12.28/terraform_0.12.28_linux_amd64.zip
+      - curl -s -qL -o terraform_install.zip https://releases.hashicorp.com/terraform/0.11.13/terraform_0.11.13_linux_amd64.zip
+      - unzip terraform_install.zip -d /usr/bin/
+      - chmod +x /usr/bin/terraform
       - pwd
       - ls
-      - sudo yum install unzip
-      - unzip terraform_0.12.18_linux_amd64.zip
-      - mv terraform /usr/local/bin/
-      - pwd
       - terraform --version
   pre_build:
     commands:
