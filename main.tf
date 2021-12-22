@@ -5,6 +5,5 @@ provider "aws" {
 }
 
 module "s3" {
-    source = "test"
     bucket_name = "akuntal-tf-test-bucket"
 }
