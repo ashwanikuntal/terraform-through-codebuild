@@ -9,7 +9,6 @@ phases:
       - chmod +x /usr/bin/terraform
       - cd /usr/bin/
       - pwd
-      - ls
   pre_build:
     commands:
       - echo Installing source dependencies...
