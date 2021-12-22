@@ -6,11 +6,11 @@ phases:
       python: 3.7
     commands:
       - echo Installing necessary dependencies..
-      - cd /usr/bin
-      - curl -o terraform.zip https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip
-      - unzip terraform.zip
+      - wget https://releases.hashicorp.com/terraform/0.12.28/terraform_0.12.28_linux_amd64.zip
+      - unzip terraform_0.12.18_linux_amd64.zip
+      - mv terraform /usr/local/bin/
       - pwd
-      - ls -lrt
+      - terraform --version
   pre_build:
     commands:
       - echo Installing source dependencies...
@@ -20,10 +20,10 @@ phases:
       - echo $"export PATH=\$PATH:$(pwd)" >> ~/.bash_profile
       - echo $PATH
       - source ~/.bash_profile
-      - python --version
-      - pwd
+      - cd "$CODEBUILD_SRC_DIR"
+      - terraform --version
       - terraform init
-      - terraform apply -input=false -auto-approve
+      - terraform apply -auto-approve
   post_build:
     commands:
       - echo "Terraform script completed on `date`"
