@@ -5,7 +5,6 @@ provider "aws" {
 }
 
 module "s3" {
-    source = "<path-to-S3-folder>"
-    #bucket name should be unique
-    bucket_name = "<Bucket-name>"
+    source = "test"
+    bucket_name = "akuntal-tf-test-bucket"
 }
