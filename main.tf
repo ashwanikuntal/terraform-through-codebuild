@@ -3,7 +3,3 @@ provider "aws" {
     secret_key = "${var.aws_secret_key}"
     region = "${var.region}"
 }
-
-module "s3" {
-    bucket_name = "akuntal-tf-test-bucket"
-}

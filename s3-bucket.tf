@@ -1,9 +1,11 @@
-resource "aws_s3_bucket" "b" {
-  bucket = "akuntal-tf-test-bucket"
-  acl    = "private"
-
-  tags = {
-    Name        = "My tf bucket"
-    Environment = "Dev"
-  }
+resource "aws_s3_bucket" "onebucket" {
+   bucket = "akuntal-bucket-terraform"
+   acl = "private"
+   versioning {
+      enabled = true
+   }
+   tags = {
+     Name = "Bucket1"
+     Environment = "Test"
+   }
 }
