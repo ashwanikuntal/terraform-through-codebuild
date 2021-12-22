@@ -17,6 +17,8 @@ phases:
   build:
     commands:
       - echo Build started.....
+      - echo $"export PATH=\$PATH:$(pwd)" >> ~/.bash_profile
+      - source ~/.bash_profile
       - python --version
       - cd "$CODEBUILD_SRC_DIR"
       - pwd
