@@ -1,0 +1,29 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.7
+    commands:
+      - echo Installing necessary dependencies..
+      - cd /usr/bin
+      - curl -o terraform.zip https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip
+      - unzip terraform.zip
+  pre_build:
+    commands:
+      - echo Installing source dependencies...
+  build:
+    commands:
+      - echo Build started.....
+      - python --version
+      - cd "$CODEBUILD_SRC_DIR"
+      - ls -lrt
+      - terraform init
+      - terraform apply -input=false -auto-approve
+  post_build:
+    commands:
+      - echo "Terraform script completed on `date`"
+      - echo Build completed
+artifacts:
+  files:
+    - '**/*'
