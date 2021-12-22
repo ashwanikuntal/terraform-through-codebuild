@@ -14,12 +14,12 @@ phases:
       - echo Installing source dependencies...
   build:
     commands:
-#      - echo Build started.....
-#      - echo $"export PATH=\$PATH:$(pwd)" >> ~/.bash_profile
-#      - echo $PATH
-#      - source ~/.bash_profile
-#      - cd "$CODEBUILD_SRC_DIR"
-#      - terraform --version
+      - echo Build started.....
+      - echo $"export PATH=\$PATH:$(pwd)" >> ~/.bash_profile
+      - echo $PATH
+      - source ~/.bash_profile
+      - cd "$CODEBUILD_SRC_DIR"
+      - terraform --version
       - terraform init
       - terraform apply -auto-approve
   post_build:
