@@ -11,6 +11,7 @@ phases:
       - chmod +x /usr/bin/terraform
       - pwd
       - ls
+    finally:
       - terraform --version
   pre_build:
     commands:
